@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Pathfinder.js</title>
+    <link rel="icon" href="assets/favicon-arrows-alt.ico" type="image/x-icon"/>
+    <script type="application/javascript" src="js/bundle.js"></script>
+    <script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+    <script src="https://use.fontawesome.com/e1a155389d.js"></script>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-100442158-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+    <link rel="stylesheet" href="./css/pathfinder.css">
+</head>
+<body>
+
+<div id="Div1">
+    <canvas id="main-canvas" width='750' height='500'></canvas>
+</div>
+
+<aside class='instructions minimized'>
+    <div class='instructions-show'>Result</div>
+    <section class='content hidden'>
+        <h1>Pathfinder.js</h1>
+        <h3>The iterate times of those algorithms</h3>
+        <ul>
+            <li>
+                <span><i class='AStar_color fa fa-square'></i> AStar</span>
+                <label id='AStar_color_result'>0</label>
+            </li>
+            <li>
+                <span><i class='BestFirst_color fa fa-square'></i> BestFirst</span>
+                <label id='BestFirst_color_result'> 0</label>
+            </li>
+            <li>
+                <span><i class='Dijkstra_color fa fa-square'></i> Dijkstra</span>
+                <label id='Dijkstra_color_result'>0</label>
+            </li>
+            <li>
+                <span><i class='BFS_color fa fa-square'></i> BFS</span>
+                <label id='BFS_color_result'>0</label>
+            </li>
+        </ul>
+    </section>
+    <div class='buttons hidden'>
+        <button class='instructions-hide'>Start</button>
+    </div>
+</aside>
+
+<aside class='algorithm'>
+    <form id='algo-controls'>
+        <h3>Pathfinding Algorithm</h3>
+
+        <div class='algo-options'>
+            <label>
+                <input type='radio' name='algo' value='AStar' checked/>
+                <span>A*</span>
+            </label>
+            <label>
+                <input type='radio' name='algo' value='BestFirst'/>
+                <span>Greedy Best-First Search</span>
+            </label>
+            <label>
+                <input type='radio' name='algo' value='Dijkstra'/>
+                <span>Dijkstra</span>
+            </label>
+            <label>
+                <input type='radio' name='algo' value='BFS'/>
+                <span>Breadth First Search</span>
+            </label>
+        </div>
+        <div class='buttons_1'>
+            <button id='run-search'>Run</button>
+            <button id='clear-search'>Clear</button>
+            <button id='compare-search'>Compare</button>
+        </div>
+    </form>
+</aside>
+
+<aside class='algorithm_1 minimized'>
+    <form id='algo-controls_1'>
+        <h3>Pathfinding Algorithm_1</h3>
+
+        <div class='algo-options_1'>
+            <label>
+                <input type='checkbox' name='algo1' value='AStar' checked="checked"/>
+                <span>A*</span>
+            </label>
+            <label>
+                <input type='checkbox' name='algo1' value='BestFirst'/>
+                <span>Greedy Best-First Search</span>
+            </label>
+            <label>
+                <input type='checkbox' name='algo1' value='Dijkstra'/>
+                <span>Dijkstra</span>
+            </label>
+            <label>
+                <input type='checkbox' name='algo1' value='BFS'/>
+                <span>Breadth First Search</span>
+            </label>
+        </div>
+        <div class='buttons_1'>
+            <button id='run-search_1'>Run</button>
+            <button id='clear-search_1'>Clear</button>
+            <button id='single-search'>Back</button>
+        </div>
+    </form>
+</aside>
+
+<aside class='controls'>
+    <form id='obs-controls'>
+        <h3>Obstacle Controls</h3>
+
+        <div class='obs-presets'>
+            <label>
+                <input type='radio' name='preset' checked value='simple'/>
+                <span>Preset 1: Simple Barrier</span>
+            </label>
+            <label>
+                <input type='radio' name='preset' value='maze'/>
+                <span>Preset 2: Maze</span>
+            </label>
+        </div>
+        <div class='buttons'>
+            <button id='set-obs'>Set</button>
+            <button id='clear-obs'>Clear</button>
+        </div>
+
+        <h3>Pixel Controls</h3>
+
+        <div class='pixel-presets'>
+            <label>
+                <input type="range" id="pixels-change" value="50">
+            </label>
+        </div>
+    </form>
+</aside>
+
+</body>
+</html>

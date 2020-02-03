@@ -1,0 +1,211 @@
+html, body, button, section, div, h1, h3, form, label, input, span, ul, li, a {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font: inherit;
+    color: inherit;
+    text-align: inherit;
+    text-decoration: inherit;
+    vertical-align: inherit;
+    box-sizing: inherit;
+    background: transparent;
+}
+
+ul {
+    list-style: none;
+}
+
+button,
+input[type="submit"] {
+    cursor: pointer;
+}
+
+button {
+    display: inline-block;
+    background-color: #ececec;
+    border-color: #ececec;
+    color: black;
+    font-weight: 700;
+    padding: 8px;
+    border-radius: 3px;
+    transition: background-color 0.3s, border-color, 0.3s;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-size: 10px;
+    text-align: center;
+}
+
+button:hover {
+    background-color: #ababab;
+}
+
+body {
+    overflow: hidden;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+#algo-controls_1, #algo-controls, #obs-controls, header, .instructions {
+    /*width: 180px;*/
+    width: 18vw;
+    background: black;
+    opacity: 0.7;
+    color: white;
+
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#algo-controls_1:hover, #algo-controls:hover, #obs-controls:hover, header:hover {
+    opacity: 0.95;
+}
+
+header {
+    position: absolute;
+    width: 40vw;
+    left: 27%;
+    top: 1%;
+}
+
+h1 {
+    font-weight: 500;
+    font-size: 36px;
+}
+
+h3 {
+    font-weight: 500;
+    font-size: 22px;
+}
+
+.algorithm, .algorithm_1 {
+    height: 30vh;
+    right: 1%;
+    top: 5%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    transition: right ease 0.4s;
+}
+
+.algorithm.minimized, .algorithm_1.minimized {
+    right: -30%;
+}
+
+.controls {
+    height: 30vh;
+    right: 1%;
+    top: 45%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    transition: right ease 0.4s;
+}
+
+.instructions {
+    padding: 20px 40px;
+    border-radius: 8px;
+
+    opacity: .95;
+    position: absolute;
+    width: auto;
+    left: 50%;
+    bottom: 50%;
+    -webkit-transform: translateX(-50%) translateY(+50%);
+    transform: translateX(-50%) translateY(+50%);
+
+    transition: bottom 0.4s ease, opacity 0.2s ease
+}
+
+.instructions.minimized {
+    opacity: 0.7;
+    font-size: 20px;
+    padding: 8px 12px;
+    padding-bottom: 25px;
+    bottom: 2%;
+}
+
+.instructions.minimized:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.instructions .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.instructions .content ul {
+    margin: 10px 0;
+    list-style: inside square;
+}
+
+.instructions .content ul li {
+    display: flex;
+    justify-content: space-around;
+    width: 160px;
+    margin-bottom: 8px;
+}
+
+.instructions > .hidden {
+    display: none;
+}
+
+.instructions > .hidden .buttons {
+    display: flex;
+}
+
+.algo-options, .algo-options_1, .obs-presets, .pixel-presets {
+    margin: 10px 0 15px;
+    font-size: 16px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.buttons_1 {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.buttons {
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.AStar_color {
+    color: #212121;
+    font-weight: 700;
+}
+
+.BestFirst_color {
+    color: #e91e63;
+    font-weight: 700;
+}
+
+.Dijkstra_color {
+    color: #757575;
+    font-weight: 700;
+}
+
+.BFS_color {
+    color: #BDBDBD;
+    font-weight: 700;
+}

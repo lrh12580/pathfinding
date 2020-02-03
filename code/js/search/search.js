@@ -1,0 +1,72 @@
+import Path from '../path';
+
+class Search {
+    constructor(board) {
+        this.board = board;
+        this.iterateTime = 0;
+    }
+
+    initializeFrontier() {
+        this.reset();
+        this.processNeighbors(this.board.start);
+    }
+
+    reset() {
+        if (this.path) this.path.reset();
+        this.cameFrom = {};
+        this.cameFrom[this.board.start] = null;
+    }
+
+    kill() {
+        clearInterval(this.updateInterval);
+        this.reset();
+    }
+
+    run(color) {
+        this.initializeFrontier();
+
+        this.updateInterval = setInterval(
+            () => {
+                const current = this.frontier.dequeue();
+                if (!current || current === this.board.goal) {
+                    clearInterval(this.updateInterval);
+                    this.path = new Path(this.buildPath(), this.board.stage, color, this.board.dx, this.board.dy);
+                }
+                this.iterateTime += 1;
+                this.processNeighbors(current);
+                this.board.grid[current].setType('visited');
+            }, 20);
+    }
+
+    buildPath() {
+        if (!this.cameFrom[this.board.goal]) {
+            return null;
+        }
+
+        let current = this.board.goal;
+        let path = [];
+
+        while (current) {
+            path.unshift(current);
+            current = this.cameFrom[current];
+        }
+
+        return path;
+    }
+
+    manhattan(coords1, coords2) {//l1范式
+        const [x1, y1] = coords1.split(',').map(s => parseInt(s));
+        const [x2, y2] = coords2.split(',').map(s => parseInt(s));
+
+        return Math.abs(x1 - x2) + Math.abs(y1 - y2);
+    }
+
+    euclidean(coords1, coords2) {//l2范式
+        const [x1, y1] = coords1.split(',').map(s => parseInt(s));
+        const [x2, y2] = coords2.split(',').map(s => parseInt(s));
+
+        return Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+    }
+}
+
+export default Search;
