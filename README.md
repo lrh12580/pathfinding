@@ -1,1 +1,1 @@
-# We visualize typical path finding algorithms including Breadth First Search, Dijkstra’s Algorithm, Greedy Best First Search and A* Algorithm and design the interactive interface for making comparisons between different algorithms.
+# We visualize typical path finding algorithms including Breadth First Search, Dijkstra’s Algorithm, Greedy Best First Search and A* Algorithm and design an interactive interface for making comparisons between different algorithms.
